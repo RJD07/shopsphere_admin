@@ -14,13 +14,13 @@ const DialogPortal = ({
   className,
   children,
   ...props
-}: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal className={cn(className)} {...props}>
-    <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
+}: React.HTMLAttributes<HTMLDivElement> & DialogPrimitive.DialogPortalProps) => (
+  <DialogPrimitive.Portal {...props}>
+    <div className={`fixed inset-0 z-50 ${cn(className)}`}>
       {children}
     </div>
   </DialogPrimitive.Portal>
-)
+);
 DialogPortal.displayName = DialogPrimitive.Portal.displayName
 
 const DialogOverlay = React.forwardRef<
